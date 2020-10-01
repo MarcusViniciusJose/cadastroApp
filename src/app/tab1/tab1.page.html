@@ -7,29 +7,41 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-  <ion-item>
-    <ion-label>Email</ion-label>
-    <ion-input placeholder="nome@creativar.com"></ion-input>
-  </ion-item>
+  <form [formGroup]="formLogin">
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="Digite seu e-mail"></ion-input>
+      <ng-container *ngFor="let erro of mensagens_validacao.email">
+        <span class="msg-erro"
+          *ngIf="formLogin.get('email').hasError(erro.tipo) && (formLogin.get('email').dirty || formLogin.get('email').touched)">
+          {{erro.mensagem}}
+        </span>
+      </ng-container>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Senha</ion-label>
-    <ion-input placeholder="******"></ion-input>
-  </ion-item>
-  
-  <ion-item>
-    <ion-label>Manter logado</ion-label>
-    <ion-checkbox slot="start" color="tertiary"></ion-checkbox>
-  </ion-item>
-  
-  <ion-item>
-    <ion-button slot="start" color="tertiary">
-      Entrar
-    </ion-button>
-    <ion-button slot="end" color="tertiary">
-      Cadastrar
-    </ion-button>
-  </ion-item>
+    <ion-item>
+      <ion-label>Senha</ion-label>
+      <ion-input formControlName="senha" type="password" placeholder="Digite sua senha"></ion-input>
+      <ng-container *ngFor="let erro of mensagens_validacao.senha">
+        <span class="msg-erro"
+          *ngIf="formLogin.get('senha').hasError(erro.tipo) && (formLogin.get('senha').dirty || formLogin.get('senha').touched)">
+          {{erro.mensagem}}
+        </span>
+      </ng-container>
+    </ion-item>
 
+    <ion-item>
+      <ion-label>Manter logado</ion-label>
+      <ion-checkbox formControlName="manterLogado" slot="start"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-button slot="start" color="tertiary" (click)="login()">
+        Entrar
+      </ion-button>
+      <ion-button slot="end" color="tertiary" routerLink="/home">
+        Voltar
+      </ion-button>
+    </ion-item>
+  </form>
 </ion-content>
