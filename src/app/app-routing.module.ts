@@ -24,6 +24,31 @@ const routes: Routes = [
     path: 'game',
     loadChildren: () => import('./tab3/tab3.module').then(m => m.Tab3PageModule)
   },
+  {
+    path: 'php',
+    loadChildren: () => import('./tela-php/tela-php.module').then( m => m.TelaPhpPageModule)
+  },
+  {
+    path: 'java',
+    loadChildren: () => import('./tela-java/tela-java.module').then( m => m.TelaJavaPageModule)
+  },
+  {
+    path: 'cplus',
+    loadChildren: () => import('./tela-cplus/tela-cplus.module').then( m => m.TelaCplusPageModule)
+  },
+  {
+    path: 'csharp',
+    loadChildren: () => import('./tela-csharp/tela-csharp.module').then( m => m.TelaCsharpPageModule)
+  },
+  {
+    path: 'html5',
+    loadChildren: () => import('./tela-html5/tela-html5.module').then( m => m.TelaHtml5PageModule)
+  },
+  {
+    path: 'css',
+    loadChildren: () => import('./tela-css/tela-css.module').then( m => m.TelaCssPageModule)
+  },
+
 
   
 
