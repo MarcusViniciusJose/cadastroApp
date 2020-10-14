@@ -136,8 +136,13 @@
     </ion-item-sliding>
 
     <form>
-    <ion-button expand="full" color="tertiary" (click)="exibirAlertLogout()" >
+    <ion-button expand="full" color="tertiary" routerLink="/home">
       Voltar Ao Menu Iniciar
+    </ion-button>
+  </form>
+  <form>
+    <ion-button expand="full" color="tertiary" (click)="exibirAlertLogout()" >
+      Logout
     </ion-button>
   </form>
 </ion-content>
